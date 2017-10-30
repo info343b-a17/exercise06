@@ -1,0 +1,45 @@
+{
+  "name": "exercise-06",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^4.8.0",
+    "fetch-mock": "^5.13.1",
+    "jquery": "^3.2.1"
+  },
+  "dependencies": {},
+  "stylelint": {
+    "extends": "stylelint-config-recommended"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 6
+    },
+    "env": {
+      "browser": true,
+      "node": true,
+      "shared-node-browser": true,
+      "jquery": true
+    },
+    "extends": "eslint:recommended",
+    "rules": {
+      "no-console": "off",
+      "semi": [
+        "off",
+        "always",
+        {
+          "omitLastInOneLineBlock": true
+        }
+      ],
+      "camelcase": [
+        "error"
+      ]
+    }
+  }
+}
