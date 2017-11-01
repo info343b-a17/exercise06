@@ -6,7 +6,8 @@ const HTML_FILE_PATH = 'problemA/index.html';
 const fs = require('fs');
 const path = require('path');
 const fetchMock = require('fetch-mock');
-
+const $ = require('jquery'); //jQuery for convenience    
+    
 //my custom matchers
 const styleMatchers = require('../lib/style-matchers.js');
 expect.extend(styleMatchers);
@@ -44,8 +45,9 @@ describe('Song searching page', () => {
     //load the HTML file as the document
     document.documentElement.innerHTML = html;
 
-    //load JavaScript libraries separately
-    $ = require('jquery'); //jQuery for convenience    
+    // window.$ = $ //just in case?
+    // window.jQuery = $;
+
     //fetch = require('node-fetch'); //"polyfill" for node
     solution = require('../'+JS_FILE_PATH); //actually load the JavaScript file!    
   });
