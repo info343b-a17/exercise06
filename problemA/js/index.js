@@ -114,7 +114,8 @@ const URL_TEMPLATE = "https://itunes.apple.com/search?entity=song&limit=25&term=
 //
 //Modify the `fetchTrackList()` function once again so that you toggle the
 //spinner (show it) BEFORE you send the AJAX request, and toggle it back off
-//after the request is completed.
+//after the ENTIRE request is completed (including after any error catching---
+//download the data and handle the error, and `then()` show the spinner.
 
 
 

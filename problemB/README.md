@@ -8,7 +8,7 @@ You can see the results of your work by opening up the included `index.html` fil
 
 1. Define a class **`Task`** that represents a single task in a to-do list. Include:
 
-    - a constructor that takes as a parameter a string description of the task. The constructor should initialize a **`description`** attribute for the task's description and a **`complete`** attribute for whether the task is finished.
+    - a constructor that takes as a parameter a string description of the task, and whether or not the task is completed. The constructor should initialize a **`description`** attribute for the task's description and a **`complete`** attribute for whether the task is finished.
   
     - a **`render()`** method that _returns_ a DOM element representing the object. This element should be a `<li>` whose content is the `description` of the `Task`, and has the `font-strike` CSS class to cross it out if `complete`.
 
