@@ -5,6 +5,10 @@ const JS_FILE_PATH = 'problemB/js/index.js';
 const styleMatchers = require('../lib/style-matchers.js');
 expect.extend(styleMatchers);
 
+//dependencies
+const $ = require('jquery'); //jQuery for convenience
+
+
 /** Begin tests **/
 
 describe('Source code is valid', () => {
@@ -23,9 +27,11 @@ describe('The class-based to-do list', () => {
     beforeAll(() => { 
       //The DOM to work with
       document.documentElement.innerHTML = '<div id="app">';
-    
+
+      window.$ = $ //just in case
+      window.jQuery = $;
+        
       //load JavaScript libraries separately, just in case they used it
-      $ = require('jquery'); //jQuery for convenience
       solution = require('../'+JS_FILE_PATH); //actually load the JavaScript file!    
     });
 
