@@ -45,8 +45,8 @@ describe('Song searching page', () => {
     //load the HTML file as the document
     document.documentElement.innerHTML = html;
 
-    // window.$ = $ //just in case?
-    // window.jQuery = $;
+    window.$ = $ //just in case?
+    window.jQuery = $;
 
     //fetch = require('node-fetch'); //"polyfill" for node
     solution = require('../'+JS_FILE_PATH); //actually load the JavaScript file!    
