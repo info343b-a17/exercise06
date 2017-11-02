@@ -39,18 +39,6 @@ describe('Source code is valid', () => {
 
 describe('Tweet display app', () => {
 
-  // let solution; //define at global scope for unit testing functions
-  
-  // beforeAll(() => { 
-  //   //The DOM to work with
-  //   document.documentElement.innerHTML = '<div id="app">';
-  
-  //   //load JavaScript libraries separately, just in case they used it
-  //   $ = require('jquery'); //jQuery for convenience
-  //   solution = require('../'+JS_FILE_PATH); //actually load the JavaScript file!    
-  // });
-
-
   describe('Model.js module', () => {
     let model;
     beforeAll(() => {

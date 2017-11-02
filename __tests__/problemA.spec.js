@@ -1,5 +1,5 @@
 //problem config
-const JS_FILE_PATH = 'problemA/js/index.js';
+const JS_FILE_PATH = 'problemA/js/index.master.js';
 const HTML_FILE_PATH = 'problemA/index.html';
 
 //dependencies
@@ -7,7 +7,7 @@ const fs = require('fs');
 const path = require('path');
 const fetchMock = require('fetch-mock');
 const $ = require('jquery'); //jQuery for convenience    
-    
+
 //my custom matchers
 const styleMatchers = require('../lib/style-matchers.js');
 expect.extend(styleMatchers);
@@ -45,10 +45,10 @@ describe('Song searching page', () => {
     //load the HTML file as the document
     document.documentElement.innerHTML = html;
 
-    window.$ = $ //just in case
-    window.jQuery = $;
+    //load JavaScript library separately
+    window.jQuery = window.$ = $;
+    fetchMock.get('*', []); //starting fetch mock for any initial loads 
 
-    //fetch = require('node-fetch'); //"polyfill" for node
     solution = require('../'+JS_FILE_PATH); //actually load the JavaScript file!    
   });
 
@@ -82,6 +82,7 @@ describe('Song searching page', () => {
   })
 
   test('fetches track information and renders the result', async () => {
+    fetchMock.restore(); //reset the mock
     fetchMock.getOnce('*', solution.EXAMPLE_SEARCH_RESULTS); //general mock, always return sample
     
     await solution.fetchTrackList('sample');
@@ -96,6 +97,7 @@ describe('Song searching page', () => {
     //mock this search!
     const searchResult = {results:[{artistName: "Test", trackName: "Test Track", previewUrl: "test link", artworkUrl100: "test image"}]};
     const searchUrl = "https://itunes.apple.com/search?entity=song&limit=25&term=TestSearch"
+    fetchMock.restore(); //reset the mock
     fetchMock.getOnce(searchUrl, searchResult);
     
     $('#searchQuery').val('TestSearch'); //type a search
@@ -112,6 +114,7 @@ describe('Song searching page', () => {
   test('handles and displays errors', async () => {
 
     //test error downloading
+    fetchMock.restore(); //reset the mock
     fetchMock.getOnce('*', {throws:new Error('Could not fetch data')});
     await solution.fetchTrackList('badurl'); //call the fetch
 
@@ -123,6 +126,7 @@ describe('Song searching page', () => {
     $('#records').html('');
 
     //test empty list
+    fetchMock.restore(); //reset the mock
     fetchMock.getOnce('*', {results:[]}); //return empty results.
     await solution.fetchTrackList('empty'); //call the fetch
 
@@ -137,6 +141,7 @@ describe('Song searching page', () => {
     let spinner = $('.fa-spinner');
     expect(spinner.hasClass('d-none')).toBe(true); //should not be shown
 
+    fetchMock.restore(); //reset the mock
     fetchMock.getOnce('*', solution.EXAMPLE_SEARCH_RESULTS); //general mock, always return sample
     $('button').click(); //submit!
     //solution.fetchTrackList('sample'); //start downloading

@@ -28,9 +28,9 @@ describe('The class-based to-do list', () => {
       //The DOM to work with
       document.documentElement.innerHTML = '<div id="app">';
 
-      window.$ = $ //just in case
-      window.jQuery = $;
-        
+      //load JavaScript library separately, just in case
+      window.jQuery = window.$ = $;
+    
       //load JavaScript libraries separately, just in case they used it
       solution = require('../'+JS_FILE_PATH); //actually load the JavaScript file!    
     });
