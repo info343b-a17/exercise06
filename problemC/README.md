@@ -82,7 +82,7 @@ To complete the exercise, you will need to create a number of different **`.js`*
 
 3. Next, create a module script **`Controller.js`** to act as the Controller. The **Controller** facilitates communication between the Model and the View and traditionally handles user interaction. The Controller tells the Model to change the data in response to user input, and then tells the View to "update" itself to reflect the changed Model. In this exercise, your control will handle getting the search query from the user.
 
-    - In order to easily get user input on the command-line, you should use the external [`readline-sync`](https://github.com/anseki/readline-sync) library (which allows you to "read" user input synchronously, one line at a time). This library has already been installed as part of the package dependencies, but you will still need to `import` it. Import the package as a **default import** (name the variable `readline`) from the `readline` module.
+    - In order to easily get user input on the command-line, you should use the external [`readline-sync`](https://github.com/anseki/readline-sync) library (which allows you to "read" user input synchronously, one line at a time). This library has already been installed as part of the package dependencies, but you will still need to `import` it. Import the package as a **default import** (name the variable `readline`) from the `readline-sync` module.
 
         - Note that you do **not** place a `./` in front of the module name, as you're not specifying a path but a package in `node_modules` to load!
 
