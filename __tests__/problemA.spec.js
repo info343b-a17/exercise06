@@ -1,5 +1,5 @@
 //problem config
-const JS_FILE_PATH = 'problemA/js/index.master.js';
+const JS_FILE_PATH = 'problemA/js/index.js';
 const HTML_FILE_PATH = 'problemA/index.html';
 
 //dependencies
