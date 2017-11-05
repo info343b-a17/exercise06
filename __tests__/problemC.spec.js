@@ -23,7 +23,7 @@ console['log'] = jest.fn(storeLogFunction) //store results of console.log
 
 describe('Source code is valid', () => {
   test('JavaScript lints without errors', async () => {
-    const sources = ['index.js','Model,js','View.js','Controller.js'].map((src) => JS_FILE_PATH_ROOT+src);
+    const sources = ['index.js','Model.js','View.js','Controller.js'].map((src) => JS_FILE_PATH_ROOT+src);
     const linterOptions = {
       parserOptions: { sourceType: "module" },
       rules:{
